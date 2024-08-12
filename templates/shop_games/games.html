@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}My favotite games{% endblock %}
+{% load static %}
+
+{% block content %}
+   
+
+<!-- myapp/templates/myapp/carousel.html -->
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <!-- Indicators -->
+    <ul class="carousel-indicators">
+        {% for game in games %}
+            <li data-target="#myCarousel" data-slide-to="{{ forloop.counter1 }}" class="{% if forloop.first %}active{% endif %}"></li>
+        {% endfor %}
+    </ul>
+
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        {% for game in games|slice:":3" %}
+            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+
+                <img src="{{ game.images }}" alt="{{ game.alt }}" class="d-block  w-100" style="max-height: 550px;">
+                <div class="carousel-caption d-none d-md-block">
+                  <p class="position-absolute top-0 start-100 btn btn-dark  translate-middle  rounded-pill" style="width: 150px; height: 40px;" ><a href={% url "shop_game:single_game" game.id %}>Watch more</a></p>
+                  <h5>{{game.title}}</h5>
+                  
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+    </a>
+</div>
+
+
+
+
+
+
+
+<div class="main-container">
+    
+    {% for game in games %}
+    <div class="card mt-5">
+        <div class="imeg-1">
+            <img src={{game.images}} class="card-img-top" alt="img">
+        </div>
+        <div class="card-body">
+            <h5 class="card-title"><a class="link-info title-link" href={% url "shop_game:single_game" game.id %}>{{game.title}}</a></h5>
+            <p class="card-text  text-danger">{{game.category}}</p>
+            <p class="card-text">Download Quantity: {{game.download_qty}}</p>
+            <p class="card-text">Price: {{game.price}}</p>
+
+            <a href={% url "shop_game:single_game" game.id %} class="btn btn-outline-success">Download</a>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+{% endblock %}

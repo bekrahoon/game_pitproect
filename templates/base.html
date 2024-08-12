@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    {% load static %}
+  <title>{% block title %}{% endblock %}</title>
+  <!-- STYLE CSS  -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    .content {
+      min-height: calc(100vh - 80px);
+    }
+
+
+    a:focus,
+    a:active {
+      outline: none;
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    a,
+    a:visited {
+      text-decoration: none;
+
+    }
+
+    body {
+      background: #C0C0C0;
+    }
+
+    .main-container {
+      -ms-grid-row: 2;
+      -ms-grid-column: 1;
+      grid-area: main;
+      display: -ms-grid;
+      display: grid;
+      -ms-grid-rows: 1fr;
+      -ms-grid-columns: 1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+      grid-template: 1fr/1fr minmax(auto, 300px) minmax(auto, 1100px) 1fr;
+    }
+
+    .card img {
+      width: 1fr;
+      height: 1fr;
+    }
+
+    .icons{
+      width: 30px;
+      height: 30px;
+    }
+
+    .card {
+
+      min-width: 250px;
+      margin: 18px;
+    }
+  </style>
+  <!-- STYLE CSS  -->
+</head>
+
+
+
+
+
+
+
+<body>
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href={% url "shop_game:index" %}>Game Shop</a>
+      <span class="navbar-text">
+        <a href="/admin/" class="me-4" target="_blank">Admin</a>
+        <a href="/api/v1/" target="_blank">API</a>
+
+      </span>
+    </div>
+  </nav>
+  <main class="container">
+    <div class="content">
+      {% block content %}
+      {% endblock %}
+    </div>
+  </main>
+
+  <footer class="text-bg-dark p-3" style="margin: 55px 0 0 0;">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+      <p>
+        Работа: Умуржанова Аба-Бекрахуна
+      </p>
+      <p>
+        Номер: 0999089884
+      </p>
+      <p>
+        email: bekrahoon12@gmail.com
+      </p>
+    </div>
+    <div class="col"><p>
+      <a href="https://www.instagram.com/bekra2005?utm_source=qr&igsh=MWw2azN0ZXZobGR3OA==" target="_blank" rel="noopener noreferrer"><img class="icons" src="{% static 'icon\inst.png' %}" alt="Logo"></a>
+      </p>
+      <p>
+      <a href="https://www.facebook.com/best.nugdaone" target="_blank" rel="noopener noreferrer"><img class="icons" src="{% static 'icon/fb.png' %}" alt="Logo"></a>
+    </p>
+     <p> <a href="https://www.linkedin.com/in/bekrahun-umurjanov-048857297?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" rel="noopener noreferrer"><img class="icons" src="{% static 'icon/lin(2).png' %}" alt="Logo"></a>
+    </p></div>
+    </div>
+    </div>
+  </footer>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
