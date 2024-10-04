@@ -58,8 +58,9 @@
             <p class="card-text  text-danger">{{game.category}}</p>
             <p class="card-text">Download Quantity: {{game.download_qty}}</p>
             <p class="card-text">Price: {{game.price}}</p>
-
             <a href={% url "shop_game:single_game" game.id %} class="btn btn-outline-success">Download</a>
+            <a href="{% url 'shop_game:add_to_cart' game.id %}" class="btn btn-outline-primary">Add to Cart</a>
+
         </div>
     </div>
     {% endfor %}
