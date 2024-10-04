@@ -40,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'shop_game.apps.ShopGameConfig',
-    # 'api.apps.ApiConfig',
+    'api.apps.ApiConfig',
     'tastypie'
 ]
 
