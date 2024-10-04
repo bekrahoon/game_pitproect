@@ -1,60 +1,36 @@
-{%extends 'base.html'%}
+{% extends 'base.html' %}
 
-{% block title %}{{games.title}}{% endblock %}
-
-
+{% block title %}{{ game.title }}{% endblock %}
 
 {% block content %}
 <div class="card text-bg-dark">
-    <img src={{game.images}} class="card-img" alt="...">
+    <img src="{{ game.images }}" class="card-img" alt="{{ game.title }}">
     <div class="card-img-overlay">
-      <h5 class="card-title">{{game.title}}</h5>
+      <h5 class="card-title">{{ game.title }}</h5>
       <div class="col-md-4 mt-3">
-       <a href={{game.video}} target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger">watch treiler</a>
+       <a href="{{ game.video }}" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger">Watch Trailer</a>
     </div>
-      <p class="card-text  m-5 mt-3" ><small></small></p>
+      <p class="card-text m-5 mt-3"><small></small></p>
     </div>
-  </div>
+</div>
 
 <div class="card mb-5" style="max-width: 800px;">
     <div class="row g-0">
         <div class="col-md-4">
-            <img src={{game.images}} class="img-fluid " alt="...">
+            <img src="{{ game.images }}" class="img-fluid" alt="{{ game.title }}">
         </div>
-
         <div class="col-md-8">
             <div class="card-body w-auto p-3">
-                <h5 class="card-title">{{game.title}}</h5>
-                <p>{{game.about_game}}</p>
-                <p class="card-text">Category: {{game.category}}</p>
-                <p class="card-text">Downloads Quantity: {{game.download_qty}}</p>
-                <p class="card-text">Price: {{game.price}}</p>
-
+                <h5 class="card-title">{{ game.title }}</h5>
+                <p>{{ game.about_game }}</p>
+                <p class="card-text">Category: {{ game.category }}</p>
+                <p class="card-text">Downloads Quantity: {{ game.download_qty }}</p>
+                <p class="card-text">Price: ${{ game.price }}</p>
                 <a href="#" class="btn btn-outline-dark mt-3">Download</a>
-                
-                <p class="card-text"><small class="text-body-secondary">latest update: {{game.update_at}}</small></p>
+                <p class="card-text"><small class="text-body-secondary">Latest update: {{ game.update_at }}</small></p>
             </div>
         </div>
     </div>
 </div>
-
-
-
-<!-- <div class="mt-5 card">
-    <h5 class="card-header">{{course.title}}</h5>
-    <div class="card-body">
-        <h5 class="card-title">{{course.category}}</h5>
-        <p class="card-text">
-        <p>Price: {{course.price}}</p>
-        <p>Students Quantity: {{course.students_qty}}</p>
-        </p>
-        <a href="#" class="btn btn-outline-success">Buy</a>
-        <div class="card-footer text-body-secondary">
-            Added: {{course.created_at}}
-        </div>
-    </div>
-</div> -->
-
-
 
 {% endblock %}
